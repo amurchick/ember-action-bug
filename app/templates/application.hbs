@@ -1,5 +1,19 @@
 {{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
+{{!welcome-page}}
 {{!-- Feel free to remove this! --}}
+
+<button {{action "buttonAction" 1 2 3 target=utils}}>
+  Direct action call
+</button>
+
+<button {{action (action "buttonAction" target=utils) 1 2 3 }}>
+  Wrapped action call
+</button>
+
+{{#each utils.messages as |message|}}
+  <p>
+    {{message.ts}} {{message.msg}}
+  </p>
+{{/each}}
 
 {{outlet}}
